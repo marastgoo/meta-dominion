@@ -6,12 +6,10 @@ LIC_FILES_CHKSUM = "file://src/util/XMLUtils.cpp;beginline=2;endline=18;md5=dae8
 
 DEPENDS = "libtinyxml kodi"
 
-PV = "16.0.0"
+PV = "17.0.0"
 
-SRCREV = "15edaf78d6307eaa5e1d17028122d8bce9d55aa2"
+SRCREV = "92583ef9f87bfcea1f2b4fc1310fdc673a2fe924"
 SRC_URI = "git://github.com/xbmc/kodi-platform.git \
-           file://0001-Fix-build-after-platform-rename.patch \
-           file://0001-fix-cross-compile-badness.patch \
            file://kodi-platform-02_no-multi-lib.patch \
           "
 
@@ -35,5 +33,9 @@ do_compile_prepend() {
 }
 
 RPROVIDES_${PN} += "libkodiplatform"
+PACKAGES =+ "libkodiplatform"
+
+FILES_libkodiplatform = "${libdir}/lib*.so.*"
+
 FILES_${PN}-dev += "${libdir}/*platform"
 

@@ -12,8 +12,8 @@ LIC_FILES_CHKSUM = "file://COPYING.GPLv2;md5=b234ee4d69f5fce4486a80fdaf4a4263 \
                     file://COPYING.LGPLv3;md5=e6a600fd5e1d9cbde2d983680233ad02"
 
 SRC_URI = "http://ffmpeg.org/releases/${BP}.tar.xz"
-SRC_URI[md5sum] = "0cff5dae51375f0a31a651f986ed1534"
-SRC_URI[sha256sum] = "25bcedbdafadac3d09c325c1d46a51f53d858b26a260d5aed6b4f17fea6e07fa"
+SRC_URI[md5sum] = "2f0422a6041d804e8463309ff7dd0c95"
+SRC_URI[sha256sum] = "c389ca5e3c29e758dd82ee6981130fe79e73b06e26db1a3aa971daea63598bc1"
 
 ARM_INSTRUCTION_SET = "arm"
 

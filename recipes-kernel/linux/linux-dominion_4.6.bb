@@ -13,7 +13,7 @@ S = "${WORKDIR}/git"
 
 PV = "4.6.4"
 
-SRC_URI = "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git"
+SRC_URI = "git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git;branch=linux-4.6.y"
 SRCREV_pn-${PN} = "310ca59d1f1ced193c296e2ecd867b9f7fb1d297"
 
 SRC_URI += " \

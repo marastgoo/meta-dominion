@@ -2,7 +2,7 @@ require recipes-graphics/mesa/${BPN}.inc
 
 LIC_FILES_CHKSUM = "file://docs/license.html;md5=899fbe7e42d494c7c8c159c7001693d5"
 
-SRCREV = "168fdc6a0799456bdce2b6b4023ebe16e455661d"
+SRCREV = "edfc17a19a17e8dae41a703a9cb4b9eb3c255c34"
 SRC_URI = "git://anongit.freedesktop.org/git/mesa/mesa.git;protocol=http;branch=12.0"
 
 S = "${WORKDIR}/git"

@@ -1,5 +1,6 @@
 DEPENDS += "libvdpau"
 
+PACKAGECONFIG_x86 = " egl gles gbm dri dri3 x11 xa r600 gallium gallium-llvm "
 PACKAGECONFIG_x86-64 = " egl gles gbm dri dri3 x11 xa r600 gallium gallium-llvm "
 
 GALLIUMDRIVERS_LLVM33 = "${@bb.utils.contains('PACKAGECONFIG', 'r600', 'r600', '', d)}"

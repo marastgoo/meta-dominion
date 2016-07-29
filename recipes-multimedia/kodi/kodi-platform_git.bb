@@ -17,9 +17,14 @@ SRC_URI = "git://github.com/xbmc/kodi-platform.git \
 
 S = "${WORKDIR}/git"
 
-inherit cmake
+inherit cmake pkgconfig
 
-EXTRA_OECMAKE = " -DCMAKE_INSTALL_PREFIX_TOOLCHAIN=${STAGING_DIR_TARGET} "
+EXTRA_OECMAKE = " -DCMAKE_INSTALL_PREFIX_TOOLCHAIN=${STAGING_DIR_TARGET} \
+                  -DCMAKE_INSTALL_LIBDIR=${libdir} \
+                  -DCMAKE_INSTALL_LIBDIR_NOARCH=${libdir} \
+                  -DKODI_INCLUDE_DIR=${STAGING_LIBDIR}/kodi \
+                  -DKODI_INCLUDE_DIR=${STAGING_INCDIR}/kodi \
+                "
 
 do_compile_prepend() {
 	sed -i -e 's:I/usr/include:I${STAGING_INCDIR}:g' \
@@ -27,12 +32,6 @@ do_compile_prepend() {
 	          ${B}/CMakeFiles/kodiplatform.dir/flags.make
 	sed -i -e 's:-pipe:${HOST_CC_ARCH} ${TOOLCHAIN_OPTIONS} -pipe:g'\
 	          ${B}/CMakeFiles/kodiplatform.dir/link.txt
-}
-
-do_install_append() {
-	install -d ${D}${libdir}
- 	mv ${D}/pkgconfig ${D}${libdir}
-	mv ${D}/kodiplatform ${D}${libdir}
 }
 
 RPROVIDES_${PN} += "libkodiplatform"

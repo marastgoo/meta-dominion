@@ -8,8 +8,9 @@ DEPENDS = "libtinyxml kodi"
 
 PV = "17.0.0"
 
-SRCREV = "92583ef9f87bfcea1f2b4fc1310fdc673a2fe924"
+SRCREV = "c8188d82678fec6b784597db69a68e74ff4986b5"
 SRC_URI = "git://github.com/xbmc/kodi-platform.git \
+           file://kodi-platform-01_crosscompile-badness.patch \
            file://kodi-platform-02_no-multi-lib.patch \
           "
 

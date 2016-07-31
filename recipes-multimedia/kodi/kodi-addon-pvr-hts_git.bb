@@ -9,7 +9,7 @@ DEPENDS = " \
             kodi-platform \
           "
 
-SRCREV_pvrhts = "8929c220a69f6349c4ab72d349f391901c3e59eb"
+SRCREV_pvrhts = "66dcb89f849b2fcf70d9697f08a7b182e08fed78"
 
 SRCREV_FORMAT = "pvrhts"
 

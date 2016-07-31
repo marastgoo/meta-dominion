@@ -18,11 +18,11 @@ S = "${WORKDIR}/git"
 
 inherit cmake pkgconfig
 
-EXTRA_OECMAKE = " -DCMAKE_INSTALL_PREFIX_TOOLCHAIN=${STAGING_DIR_TARGET} \
+EXTRA_OECMAKE = " -DCMAKE_INSTALL_PREFIX_TOOLCHAIN=${STAGING_DIR_HOST}${prefix} \
                   -DCMAKE_INSTALL_LIBDIR=${libdir} \
                   -DCMAKE_INSTALL_LIBDIR_NOARCH=${libdir} \
-                  -DKODI_INCLUDE_DIR=${STAGING_LIBDIR}/kodi \
-                  -DKODI_INCLUDE_DIR=${STAGING_INCDIR}/kodi \
+                  -DCMAKE_MODULE_PATH=${STAGING_DIR_HOST}${libdir}/kodi \
+                  -DCMAKE_PREFIX_PATH=${STAGING_DIR_HOST}${prefix} \
                 "
 
 do_compile_prepend() {

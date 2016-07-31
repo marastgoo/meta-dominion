@@ -22,13 +22,13 @@ inherit cmake pkgconfig gettext
 
 S = "${WORKDIR}/pvr.hts"
 
-EXTRA_OECMAKE = "\
+EXTRA_OECMAKE = " \
 	  -DADDONS_TO_BUILD=pvr.hts \
 	  -DADDON_SRC_PREFIX=${WORKDIR}/git \
 	  -DCMAKE_BUILD_TYPE=Debug \
 	  -DCMAKE_INSTALL_PREFIX=${datadir}/kodi/addons \
-          -DCMAKE_MODULE_PATH=${STAGING_LIBDIR}/kodi \
-	  -DCMAKE_PREFIX_PATH=${prefix} \
+          -DCMAKE_MODULE_PATH=${STAGING_DIR_HOST}${libdir}/kodi \
+          -DCMAKE_PREFIX_PATH=${STAGING_DIR_HOST}${prefix} \
           -DPACKAGE_ZIP=1 \
         "
 

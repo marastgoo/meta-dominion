@@ -63,7 +63,7 @@ DEPENDS = " \
             zlib \
           "
 
-SRCREV = "84d55c1f2d3f2ad4bb6a008d980dd19c7f37a414"
+SRCREV = "dac8f75944ef46dc6cd6def50feee15e51733566"
 
 PV = "17+gitr${SRCPV}"
 SRC_URI = "git://github.com/xbmc/xbmc.git;branch=master \

@@ -5,16 +5,16 @@ DEPENDS += "openssl-native"
 DESCRIPTION = "Linux kernel"
 KERNEL_IMAGETYPE ?= "zImage"
 
-COMPATIBLE_MACHINE = "(dominion-old|dominion|beast|macbook|soekris-net6501|arietta-g25|macbook|minnow|minnowboard|fri2|beaglebone|apu2c4|revo)"
+COMPATIBLE_MACHINE = "(dominion-old|dominion|beast|macbook|soekris-net6501|arietta-g25|macbook|minnow|minnowboard|fri2|beaglebone|apu2c4|revo|dlink-dns320)"
 
 FILESPATH =. "${FILE_DIRNAME}/linux-dominion-4.7:${FILE_DIRNAME}/linux-dominion-4.7/${MACHINE}:"
 
 S = "${WORKDIR}/git"
 
-PV = "4.7.4"
+PV = "4.7.9"
 
 SRC_URI = "git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git;branch=linux-4.7.y"
-SRCREV_pn-${PN} = "bd333da7f0dfb64d68774e283044be2996bda301"
+SRCREV_pn-${PN} = "452063d755094e7604c39acab88083cc188c2c03"
 
 SRC_URI += " \
              file://0001-wireless-populate-db.txt.patch \

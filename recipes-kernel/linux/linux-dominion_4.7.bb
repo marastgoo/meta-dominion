@@ -27,6 +27,7 @@ SRC_URI += " \
              file://0002-block-introduce-the-BFQ-v7r11-I-O-sched-for-4.7.0.patch \
              file://0003-block-bfq-add-Early-Queue-Merge-EQM-to-BFQ-v7r11-for.patch \
              file://0004-block-bfq-turn-BFQ-v7r11-for-4.7.0-into-BFQ-v8r2-for.patch \
+             file://0001-dns320-hardcode-bootargs.patch \
              file://am335x-pm-firmware.elf \
              file://defconfig \
            "

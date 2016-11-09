@@ -1,0 +1,26 @@
+From 1a4d473158bd84d9630cd2af8a53889f89e7e906 Mon Sep 17 00:00:00 2001
+From: Koen Kooi <koen@dominion.thruhere.net>
+Date: Sun, 23 Oct 2016 10:44:32 +0200
+Subject: [PATCH] dns320: hardcode bootargs
+
+Signed-off-by: Koen Kooi <koen@dominion.thruhere.net>
+---
+ arch/arm/boot/dts/kirkwood-dns320.dts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm/boot/dts/kirkwood-dns320.dts b/arch/arm/boot/dts/kirkwood-dns320.dts
+index d85ef0a9..5a11982 100644
+--- a/arch/arm/boot/dts/kirkwood-dns320.dts
++++ b/arch/arm/boot/dts/kirkwood-dns320.dts
+@@ -12,7 +12,7 @@
+ 	};
+ 
+ 	chosen {
+-		bootargs = "console=ttyS0,115200n8 earlyprintk";
++		bootargs = "console=ttyS0,115200n8 earlyprintk root=/dev/sda1 usb-storage.delay_use=0 rootwait ro";
+ 		stdout-path = &uart0;
+ 	};
+ 
+-- 
+2.0.1
+

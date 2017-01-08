@@ -1,4 +1,4 @@
-SRCREV = "80d463be829abcee4dbdca8432b9a69452e2021d"
+SRCREV = "4b9559fb0565f582a21a4070a81a3b6a7d77610b"
 
 LIC_FILES_CHKSUM = "\
     file://LICENCE.Abilis;md5=b5ee3f410780e56711ad48eadc22b8bc \
@@ -28,7 +28,6 @@ LIC_FILES_CHKSUM = "\
     file://LICENCE.kaweth;md5=b1d876e562f4b3b8d391ad8395dfe03f \
     file://LICENCE.Marvell;md5=9ddea1734a4baf3c78d845151f42a37a \
     file://LICENCE.moxa;md5=1086614767d8ccf744a923289d3d4261 \
-    file://LICENCE.mwl8335;md5=9a6271ee0e644404b2ff3c61fd070983 \
     file://LICENCE.myri10ge_firmware;md5=42e32fb89f6b959ca222e25ac8df8fed \
     file://LICENCE.nvidia;md5=4428a922ed3ba2ceec95f076a488ce07 \
     file://LICENCE.OLPC;md5=5b917f9d8c061991be4f6f5f108719cd \
@@ -44,7 +43,7 @@ LIC_FILES_CHKSUM = "\
     file://LICENCE.ralink_a_mediatek_company_firmware;md5=728f1a85fd53fd67fa8d7afb080bc435 \
     file://LICENCE.ralink-firmware.txt;md5=ab2c269277c45476fb449673911a2dfd \
     file://LICENCE.rtlwifi_firmware.txt;md5=00d06cfd3eddd5a2698948ead2ad54a5 \
-    file://LICENCE.siano;md5=602c79ae3f98f1e73d880fd9f940a418 \
+    file://LICENCE.siano;md5=4556c1bf830067f12ca151ad953ec2a5 \
     file://LICENCE.tda7706-firmware.txt;md5=835997cf5e3c131d0dddd695c7d9103e \
     file://LICENCE.ti-connectivity;md5=c5e02be633f1499c109d1652514d85ec \
     file://LICENCE.ti-keystone;md5=3a86335d32864b0bef996bee26cc0f2c \
@@ -54,4 +53,5 @@ LIC_FILES_CHKSUM = "\
     file://LICENCE.xc4000;md5=0ff51d2dc49fce04814c9155081092f0 \
     file://LICENCE.xc5000;md5=1e170c13175323c32c7f4d0998d53f66 \
     file://LICENCE.xc5000c;md5=12b02efa3049db65d524aeb418dd87ca \
+    file://WHENCE;md5=e549774821aa2bfd08a842b874434ca9 \
 "

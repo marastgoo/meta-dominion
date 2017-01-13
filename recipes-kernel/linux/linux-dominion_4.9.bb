@@ -11,10 +11,10 @@ FILESPATH =. "${FILE_DIRNAME}/linux-dominion-4.9:${FILE_DIRNAME}/linux-dominion-
 
 S = "${WORKDIR}/git"
 
-PV = "4.9.1"
+PV = "4.9.3"
 
 SRC_URI = "git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git;branch=linux-4.9.y"
-SRCREV_pn-${PN} = "6437abdb624edc4e68859e66768933d2b5eb9f09"
+SRCREV_pn-${PN} = "584fd7872c1bc29d3b752bebb6a5b470018f83e8"
 
 SRC_URI += " \
              file://0001-wireless-populate-db.txt.patch \
@@ -32,11 +32,13 @@ SRC_URI += " \
              file://defconfig \
              file://bbr.fragment \
              file://bfq.fragment \
+             file://intel.fragment \
             "
 
 KERNEL_CONFIG_FRAGMENTS_append = " \
                                   ${WORKDIR}/bbr.fragment \
                                   ${WORKDIR}/bfq.fragment \
+                                  ${WORKDIR}/intel.fragment \
                                  "
 
 do_configure_prepend() {

@@ -1,0 +1,32 @@
+From 802d3b10aa8c475dd64a1788021420fb59efaeda Mon Sep 17 00:00:00 2001
+From: Koen Kooi <koen@dominion.thruhere.net>
+Date: Wed, 9 Jul 2014 10:02:14 +0200
+Subject: [PATCH 5/6] ARM: DTS: acme-arietta: use button as power button
+
+Signed-off-by: Koen Kooi <koen@dominion.thruhere.net>
+---
+ arch/arm/boot/dts/acme-arietta.dts | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+
+diff --git a/arch/arm/boot/dts/acme-arietta.dts b/arch/arm/boot/dts/acme-arietta.dts
+index 6069710..b051ee0 100644
+--- a/arch/arm/boot/dts/acme-arietta.dts
++++ b/arch/arm/boot/dts/acme-arietta.dts
+@@ -122,4 +122,14 @@
+ 			linux,default-trigger = "heartbeat";
+ 		};
+ 	};
++	keys {
++		compatible = "gpio-keys";
++		arietta_key {
++			label = "arietta_key";
++			gpios = <&pioC 17 GPIO_ACTIVE_LOW>; /* PC17 */
++			linux,code = <116>; /* this is the key power button defined in Linux input.h */
++			linux,input-type = <1>; /* EV_KEY */
++			gpio-key,wakeup;
++		};
++	};
+ };
+-- 
+2.0.1
+

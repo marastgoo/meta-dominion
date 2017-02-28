@@ -1,7 +1,7 @@
 SUMMARY = "Out of tree build for the new cake qdisc"
 
 LICENSE = "GPLv2"
-LIC_FILES_CHKSUM = "file://sch_cake.c;beginline=1;endline=36;md5=f7460465b8f00de680333c8d52c4447f"
+LIC_FILES_CHKSUM = "file://sch_cake.c;beginline=1;endline=36;md5=e8cb01c6f6eed5ce11819e234bf9119e"
 
 # Made up version
 PV = "2017.02"

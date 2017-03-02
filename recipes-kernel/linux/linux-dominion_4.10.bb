@@ -36,6 +36,7 @@ SRC_URI += " \
              file://bfq.fragment \
              file://intel.fragment \
              file://block.fragment \
+             file://systemd.fragment \
             "
 
 KERNEL_CONFIG_FRAGMENTS_append = " \

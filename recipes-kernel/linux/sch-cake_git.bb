@@ -4,9 +4,9 @@ LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://sch_cake.c;beginline=1;endline=36;md5=e8cb01c6f6eed5ce11819e234bf9119e"
 
 # Made up version
-PV = "2017.02"
+PV = "2017.03"
 
-SRCREV = "9789742cfc596d48583ba4cdbc8f38d026121fa6"
+SRCREV = "e4a362875d2eaf2f35adf7f128ffaec5e2e846b7"
 SRC_URI = "git://github.com/dtaht/sch_cake.git;protocol=https" 
 
 S = "${WORKDIR}/git"

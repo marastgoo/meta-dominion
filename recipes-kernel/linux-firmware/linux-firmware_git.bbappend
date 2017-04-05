@@ -1,10 +1,10 @@
-SRCREV = "4b9559fb0565f582a21a4070a81a3b6a7d77610b"
+SRCREV = "b14134583c2a15d4404695f72cb523daedb877ab"
 
 LIC_FILES_CHKSUM = "\
     file://LICENCE.Abilis;md5=b5ee3f410780e56711ad48eadc22b8bc \
     file://LICENCE.adsp_sst;md5=615c45b91a5a4a9fe046d6ab9a2df728 \
     file://LICENCE.agere;md5=af0133de6b4a9b2522defd5f188afd31 \
-    file://LICENSE.amdgpu;md5=3fe8a3430700a518990c3b3d75297209 \
+    file://LICENSE.amdgpu;md5=0aa3c2f3e736af320a08a3aeeccecf29 \
     file://LICENSE.amd-ucode;md5=3a0de451253cc1edbf30a3c621effee3 \
     file://LICENCE.atheros_firmware;md5=30a14c7823beedac9fa39c64fdd01a13 \
     file://LICENSE.atmel;md5=aa74ac0c60595dee4d4e239107ea77a3 \
@@ -35,11 +35,11 @@ LIC_FILES_CHKSUM = "\
     file://LICENCE.phanfw;md5=954dcec0e051f9409812b561ea743bfa \
     file://LICENCE.qat_firmware;md5=9e7d8bea77612d7cc7d9e9b54b623062 \
     file://LICENCE.qla1280;md5=d6895732e622d950609093223a2c4f5d \
-    file://LICENCE.qla2xxx;md5=f5ce8529ec5c17cb7f911d2721d90e91 \
+    file://LICENCE.qla2xxx;md5=505855e921b75f1be4a437ad9b79dff0 \
     file://LICENSE.QualcommAtheros_ar3k;md5=b5fe244fb2b532311de1472a3bc06da5 \
     file://LICENSE.QualcommAtheros_ath10k;md5=b5fe244fb2b532311de1472a3bc06da5 \
     file://LICENCE.r8a779x_usb3;md5=4c1671656153025d7076105a5da7e498 \
-    file://LICENSE.radeon;md5=69612f4f7b141a97659cb1d609a1bde2 \
+    file://LICENSE.radeon;md5=68ec28bacb3613200bca44f404c69b16 \
     file://LICENCE.ralink_a_mediatek_company_firmware;md5=728f1a85fd53fd67fa8d7afb080bc435 \
     file://LICENCE.ralink-firmware.txt;md5=ab2c269277c45476fb449673911a2dfd \
     file://LICENCE.rtlwifi_firmware.txt;md5=00d06cfd3eddd5a2698948ead2ad54a5 \
@@ -53,5 +53,7 @@ LIC_FILES_CHKSUM = "\
     file://LICENCE.xc4000;md5=0ff51d2dc49fce04814c9155081092f0 \
     file://LICENCE.xc5000;md5=1e170c13175323c32c7f4d0998d53f66 \
     file://LICENCE.xc5000c;md5=12b02efa3049db65d524aeb418dd87ca \
-    file://WHENCE;md5=e549774821aa2bfd08a842b874434ca9 \
+    file://WHENCE;md5=ad12d0618287e8c10ae3da05fa0edcfb \
 "
+
+INSANE_SKIP_${PN} = "arch"

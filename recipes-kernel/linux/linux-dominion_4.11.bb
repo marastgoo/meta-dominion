@@ -25,6 +25,7 @@ SRC_URI += " \
              file://bfq.fragment \
              file://intel.fragment \
              file://block.fragment \
+             file://btrfs.fragment \
              file://debug.fragment \
              file://systemd.fragment \
             "
@@ -33,6 +34,7 @@ KERNEL_CONFIG_FRAGMENTS_append = " \
                                   ${WORKDIR}/bbr.fragment \
                                   ${WORKDIR}/bfq.fragment \
                                   ${WORKDIR}/block.fragment \
+                                  ${WORKDIR}/btrfs.fragment \
                                   ${WORKDIR}/debug.fragment \
                                  "
 

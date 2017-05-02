@@ -1,7 +1,7 @@
-From 18d00fd7dc16a2f769b4da469e3496803000bd0a Mon Sep 17 00:00:00 2001
+From 254d87e8bd43eaf0e93178bfbfa9fb0dd237a052 Mon Sep 17 00:00:00 2001
 From: Paolo Valente <paolo.valente@unimore.it>
 Date: Thu, 9 May 2013 19:10:02 +0200
-Subject: [PATCH 2/6] block: introduce the BFQ-v7r11 I/O sched for 4.5.0
+Subject: [PATCH 2/4] block: introduce the BFQ-v7r11 I/O sched for 4.11.0
 
 The general structure is borrowed from CFQ, as much of the code for
 handling I/O contexts. Over time, several useful features have been
@@ -69,7 +69,7 @@ Signed-off-by: Arianna Avanzini <avanzini@google.com>
  create mode 100644 block/bfq.h
 
 diff --git a/block/Kconfig.iosched b/block/Kconfig.iosched
-index 0ee5f0f..f78cd1a 100644
+index bb47b1a..b1ab0ca 100644
 --- a/block/Kconfig.iosched
 +++ b/block/Kconfig.iosched
 @@ -51,14 +51,12 @@ config IOSCHED_BFQ

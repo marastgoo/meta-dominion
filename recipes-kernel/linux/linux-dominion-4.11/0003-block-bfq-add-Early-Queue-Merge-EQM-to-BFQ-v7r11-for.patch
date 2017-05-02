@@ -1,8 +1,8 @@
-From bf2cb5aec38fa99ccfdb41b58e1a2c31b6c597f3 Mon Sep 17 00:00:00 2001
+From 49a87bf959e396e87ea0f441be609393a856e8c7 Mon Sep 17 00:00:00 2001
 From: Mauro Andreolini <mauro.andreolini@unimore.it>
 Date: Sun, 6 Sep 2015 16:09:05 +0200
-Subject: [PATCH 3/6] block, bfq: add Early Queue Merge (EQM) to BFQ-v7r11 for
- 4.5.0
+Subject: [PATCH 3/4] block, bfq: add Early Queue Merge (EQM) to BFQ-v7r11 for
+ 4.11.0
 
 A set of processes may happen  to  perform interleaved reads, i.e.,requests
 whose union would give rise to a  sequential read  pattern.  There are two

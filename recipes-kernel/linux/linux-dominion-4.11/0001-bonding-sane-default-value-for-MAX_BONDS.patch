@@ -1,7 +1,7 @@
-From bc6d9b45e0b414a40c51ce8b583352fcb814659e Mon Sep 17 00:00:00 2001
+From 887ff842db76b845990dfeebe0e6f7eecfee1ccf Mon Sep 17 00:00:00 2001
 From: Koen Kooi <koen@dominion.thruhere.net>
 Date: Tue, 17 Jan 2017 08:00:32 +0100
-Subject: [PATCH 6/6] bonding: sane default value for MAX_BONDS
+Subject: [PATCH 1/5] bonding: sane default value for MAX_BONDS
 
 This fixes many, many networking scripts.
 

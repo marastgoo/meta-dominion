@@ -18,11 +18,11 @@ SRCREV_pn-${PN} = "4c71e91a048f77e97205831a7dd1fe86c63d2738"
 
 SRC_URI += " \
              file://0001-wireless-populate-db.txt.patch \
-             file://0001-block-cgroups-kconfig-build-bits-for-BFQ-v7r11-4.11..patch \
-             file://0002-block-introduce-the-BFQ-v7r11-I-O-sched-for-4.11.0.patch \
-             file://0003-block-bfq-add-Early-Queue-Merge-EQM-to-BFQ-v7r11-for.patch \
-             file://0004-blk-bfq-turn-BFQ-v7r11-for-4.11.0-into-BFQ-v8r11-for.patch \
-             file://0006-bonding-sane-default-value-for-MAX_BONDS.patch \
+             file://0001-bonding-sane-default-value-for-MAX_BONDS.patch \
+             file://0002-block-cgroups-kconfig-build-bits-for-BFQ-v7r11-4.11..patch \
+             file://0003-block-introduce-the-BFQ-v7r11-I-O-sched-for-4.11.0.patch \
+             file://0004-block-bfq-add-Early-Queue-Merge-EQM-to-BFQ-v7r11-for.patch \
+             file://0005-blk-bfq-turn-BFQ-v7r11-for-4.11.0-into-BFQ-v8r11-for.patch \
              file://am335x-pm-firmware.elf \
              file://defconfig \
              file://bbr.fragment \

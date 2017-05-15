@@ -1,7 +1,7 @@
-From 254d87e8bd43eaf0e93178bfbfa9fb0dd237a052 Mon Sep 17 00:00:00 2001
+From 741490f1c2390a721f4509a1f07413da6c416dcb Mon Sep 17 00:00:00 2001
 From: Paolo Valente <paolo.valente@unimore.it>
 Date: Thu, 9 May 2013 19:10:02 +0200
-Subject: [PATCH 2/4] block: introduce the BFQ-v7r11 I/O sched for 4.11.0
+Subject: [PATCH 3/5] block: introduce the BFQ-v7r11 I/O sched for 4.11.0
 
 The general structure is borrowed from CFQ, as much of the code for
 handling I/O contexts. Over time, several useful features have been

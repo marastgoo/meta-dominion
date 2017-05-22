@@ -32,6 +32,7 @@ SRC_URI += " \
              file://btrfs.fragment \
              file://debug.fragment \
              file://systemd.fragment \
+             file://mlx.fragment \
             "
 
 KERNEL_CONFIG_FRAGMENTS_append = " \
@@ -48,6 +49,18 @@ KERNEL_CONFIG_FRAGMENTS_append_x86 = " \
 
 KERNEL_CONFIG_FRAGMENTS_append_x86_64 = " \
                                   ${WORKDIR}/intel.fragment \
+                                 "
+
+KERNEL_CONFIG_FRAGMENTS_append_dominion = " \
+                                  ${WORKDIR}/mlx.fragment \
+                                 "
+
+KERNEL_CONFIG_FRAGMENTS_append_beast = " \
+                                  ${WORKDIR}/mlx.fragment \
+                                 "
+
+KERNEL_CONFIG_FRAGMENTS_append_rogue = " \
+                                  ${WORKDIR}/mlx.fragment \
                                  "
 
 do_configure_prepend() {

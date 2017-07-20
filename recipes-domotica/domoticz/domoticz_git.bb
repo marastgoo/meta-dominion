@@ -7,9 +7,9 @@ DEPENDS = "lua sqlite3 boost curl openssl libusb zlib"
 
 inherit cmake pkgconfig useradd systemd
 
-PV = "3.7439+git${SRCPV}"
+PV = "3.8100+git${SRCPV}"
 
-SRCREV = "a2148229cd8823df4657e9f60a70847b11fb8ccc"
+SRCREV = "3e164e4e13eafb4f6acbb3810095f543da929a73"
 SRC_URI = "git://github.com/domoticz/domoticz.git;protocol=https \
            file://domoticz.service \
           "
@@ -53,6 +53,7 @@ USERADD_PARAM_${PN} = " \
     --user-group domoticz"
 
 # Domoticz is mostly used in combination with a smart meter (ftdi dongles) or an rftrxx (acm based).
-RRECOMMENDS_${PN} += "kernel-module-cdc-acm \
+RRECOMMENDS_${PN} += "python3 \
+                      kernel-module-cdc-acm \
                       kernel-module-usbserial \
                      "

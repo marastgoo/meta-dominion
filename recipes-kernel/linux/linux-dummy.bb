@@ -56,6 +56,10 @@ do_deploy() {
 	:
 }
 
+do_kernel_link_images() {
+	:
+}
+
 # Only stage the files we need for depmod, not the modules/firmware
 sysroot_stage_all () {
 	sysroot_stage_dir ${D}${datadir}/kernel-depmod ${SYSROOT_DESTDIR}${datadir}/kernel-depmod

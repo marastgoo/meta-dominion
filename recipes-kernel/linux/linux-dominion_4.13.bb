@@ -11,10 +11,10 @@ FILESPATH =. "${FILE_DIRNAME}/linux-dominion-4.13:${FILE_DIRNAME}/linux-dominion
 
 S = "${WORKDIR}/git"
 
-PV = "4.13.0"
+PV = "4.13.5"
 
 SRC_URI = "git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git;protocol=https;branch=linux-4.13.y"
-SRCREV_pn-${PN} = "569dbb88e80deb68974ef6fdd6a13edb9d686261"
+SRCREV_pn-${PN} = "06b0d88bfe617c354acfda490172e4d72bc632c8"
 
 
 SRC_URI += " \
@@ -57,7 +57,8 @@ KERNEL_CONFIG_FRAGMENTS_append_dominion = " \
                                  "
 
 KERNEL_CONFIG_FRAGMENTS_append_beast = " \
-                                  ${WORKDIR}/mlx.fragment \
+				  ${WORKDIR}/mlx.fragment \
+                                  ${WORKDIR}/nfs.fragment \
                                  "
 
 KERNEL_CONFIG_FRAGMENTS_append_rogue = " \

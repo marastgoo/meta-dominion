@@ -19,3 +19,5 @@ do_install() {
 	install -d ${D}/lib/modules/${KERNEL_VERSION}/kernel/net/sched/
 	install -m 0644 sch_cake.ko ${D}/lib/modules/${KERNEL_VERSION}/kernel/net/sched/
 }
+
+RDEPENDS_${PN} += "iproute2-tc"

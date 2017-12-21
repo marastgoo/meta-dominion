@@ -21,6 +21,10 @@ SRCREV_pn-${PN} = "3afae8437c3cbc22966762e80e81818f5a90eb06"
 SRC_URI += " \
              file://0001-wireless-populate-db.txt.patch \
              file://0001-bonding-sane-default-value-for-MAX_BONDS.patch \
+             file://0002-hwmon-k10temp-Move-chip-specific-code-into-probe-fun.patch \
+             file://0003-hwmon-k10temp-Add-support-for-family-17h.patch \
+             file://0004-hwmon-k10temp-Add-support-for-temperature-offsets.patch \
+             file://0005-Fix-vdso-link-error.patch \
              file://am335x-pm-firmware.elf \
              file://defconfig \
              file://bbr.fragment \

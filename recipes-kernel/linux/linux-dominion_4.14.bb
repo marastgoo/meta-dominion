@@ -25,7 +25,11 @@ SRC_URI += " \
              file://0003-hwmon-k10temp-Add-support-for-family-17h.patch \
              file://0004-hwmon-k10temp-Add-support-for-temperature-offsets.patch \
              file://0005-Fix-vdso-link-error.patch \
+             file://am335x-bone-scale-data.bin \
+             file://am335x-evm-scale-data.bin \
+             file://am335x-pm-firmware.bin \
              file://am335x-pm-firmware.elf \
+             file://am43x-evm-scale-data.bin \
              file://defconfig \
              file://bbr.fragment \
              file://iosched.fragment \
@@ -72,6 +76,6 @@ KERNEL_CONFIG_FRAGMENTS_append_rogue = " \
 
 do_configure_prepend() {
 	if [ -e ${WORKDIR}/am335x-pm-firmware.elf ] ; then
-		cp ${WORKDIR}/am335x-pm-firmware.elf ${S}/firmware/
+		cp ${WORKDIR}/am* ${S}/firmware/
 	fi
 }

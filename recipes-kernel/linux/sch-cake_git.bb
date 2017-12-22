@@ -1,12 +1,12 @@
 SUMMARY = "Out of tree build for the new cake qdisc"
 
 LICENSE = "GPLv2"
-LIC_FILES_CHKSUM = "file://sch_cake.c;beginline=1;endline=36;md5=e8cb01c6f6eed5ce11819e234bf9119e"
+LIC_FILES_CHKSUM = "file://sch_cake.c;beginline=1;endline=36;md5=93db6d2d93d0ddf825519d65f10f5531"
 
 # Made up version
-PV = "2017.07"
+PV = "2017.12"
 
-SRCREV = "bd94dac7b54629ad74454feafb2ae5fb65945e23"
+SRCREV = "801f83b37f6bbeb3620f38403e6224bd183a5fc0"
 SRC_URI = "git://github.com/dtaht/sch_cake.git;protocol=https;branch=cobalt" 
 
 S = "${WORKDIR}/git"

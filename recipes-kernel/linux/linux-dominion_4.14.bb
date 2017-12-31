@@ -25,6 +25,7 @@ SRC_URI += " \
              file://0003-hwmon-k10temp-Add-support-for-family-17h.patch \
              file://0004-hwmon-k10temp-Add-support-for-temperature-offsets.patch \
              file://0005-Fix-vdso-link-error.patch \
+             file://bd00b873274664f077142c5826ac945f2c63b532.patch \
              file://am335x-bone-scale-data.bin \
              file://am335x-evm-scale-data.bin \
              file://am335x-pm-firmware.bin \

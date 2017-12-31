@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://sch_cake.c;beginline=1;endline=36;md5=93db6d2d93d0ddf
 # Made up version
 PV = "2017.12"
 
-SRCREV = "801f83b37f6bbeb3620f38403e6224bd183a5fc0"
+SRCREV = "5bf0b6596721e18269ee4bae6e3549c75cba923a"
 SRC_URI = "git://github.com/dtaht/sch_cake.git;protocol=https;branch=cobalt" 
 
 S = "${WORKDIR}/git"

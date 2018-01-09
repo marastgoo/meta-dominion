@@ -3,14 +3,15 @@ HOMEPAGE = "http://wpan.cakelab.org/releases/"
 DESCRIPTION = "This is a set of utils to manage the Linux WPAN stack via \
 netlink interface. This requires recent kernel with nl802154 interface."
 
-LICENSE = "GPLv2"
-LIC_FILES_CHKSUM = "file://COPYING;md5=4c90a0ebb6b0b86b0ab38254fc853b57"
+LICENSE = "ISC"
+LIC_FILES_CHKSUM = "file://COPYING;md5=4cfd939b1d7e6aba9fcefb7f6e2fd45d"
 
 DEPENDS = "libnl"
 
-PV = "0.4+git${SRCPV}"
+PV = "0.7+git${SRCPV}"
+SRCREV = "77ae6f363e0bbd667f688fbfcb1a33024c026c2d"
+
 SRC_URI = "git://github.com/linux-wpan/wpan-tools.git"
-SRCREV = "74a37056c596f73f1aed2d89973c3cb87ba43cb3"
 
 S = "${WORKDIR}/git"
 

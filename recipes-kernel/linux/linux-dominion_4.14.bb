@@ -42,6 +42,7 @@ SRC_URI += " \
              file://cifs.fragment \
              file://nfs.fragment \
              file://mlx.fragment \
+             file://unwinder.fragment \
             "
 
 KERNEL_CONFIG_FRAGMENTS_append = " \
@@ -52,6 +53,7 @@ KERNEL_CONFIG_FRAGMENTS_append = " \
                                   ${WORKDIR}/debug.fragment \
                                   ${WORKDIR}/cifs.fragment \
                                   ${WORKDIR}/systemd.fragment \
+                                  ${WORKDIR}/unwinder.fragment \
                                  "
 
 KERNEL_CONFIG_FRAGMENTS_append_x86 = " \

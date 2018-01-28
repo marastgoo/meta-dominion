@@ -58,7 +58,7 @@ KERNEL_CONFIG_FRAGMENTS_append_x86 = " \
                                   ${WORKDIR}/intel.fragment \
                                  "
 
-KERNEL_CONFIG_FRAGMENTS_append_x86_64 = " \
+KERNEL_CONFIG_FRAGMENTS_append_x86-64 = " \
                                   ${WORKDIR}/intel.fragment \
                                  "
 

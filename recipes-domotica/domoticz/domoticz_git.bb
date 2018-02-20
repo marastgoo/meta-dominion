@@ -3,13 +3,13 @@ SUMMARY = "Domoticz is a Home Automation system design to control various device
 LICENSE = "GPLv3"
 LIC_FILES_CHKSUM = "file://License.txt;md5=d32239bcb673463ab874e80d47fae504"
 
-DEPENDS = "lua sqlite3 boost curl openssl libusb zlib openzwave"
+DEPENDS = "lua sqlite3 boost curl openssl libusb zlib openzwave mosquitto"
 
 inherit cmake pkgconfig useradd systemd
 
-PV = "3.8807+git${SRCPV}"
+PV = "3.8923+git${SRCPV}"
 
-SRCREV = "992c5315cdac62636113316ea3ab351ae16d792f"
+SRCREV = "f779742ffce602b277f0375a9fb143b00aed527b"
 SRC_URI = "git://github.com/domoticz/domoticz.git;protocol=https;branch=development \
            file://domoticz.service \
           "
@@ -23,6 +23,7 @@ EXTRA_OECMAKE = " -DBOOST_INCLUDEDIR=${STAGING_INCDIR} \
                   -DCURL_INCLUDE_DIR=${STAGING_INCDIR} \
                   -DOPENZWAVE_LIBRARY_DIRS=${STAGING_LIBDIR} \
                   -DUSE_STATIC_OPENZWAVE=NO \
+                  -DUSE_BUILTIN_MQTT=NO \
                 "
 
 

@@ -3,15 +3,14 @@ SUMMARY = "Domoticz is a Home Automation system design to control various device
 LICENSE = "GPLv3"
 LIC_FILES_CHKSUM = "file://License.txt;md5=d32239bcb673463ab874e80d47fae504"
 
-DEPENDS = "lua sqlite3 boost curl openssl libusb zlib"
+DEPENDS = "lua sqlite3 boost curl openssl libusb zlib openzwave"
 
 inherit cmake pkgconfig useradd systemd
 
-PV = "3.5516+git${SRCPV}"
+PV = "3.8970+git${SRCPV}"
 
-SRCREV = "2c6c836dd70418d20b4113a4e1a21f2e46bd3e79"
-SRC_URI = "git://github.com/domoticz/domoticz.git;protocol=https \
-           file://hack.patch \
+SRCREV = "df6446327cadac1fb0c54f4ce3841ff6d53f4e95"
+SRC_URI = "git://github.com/domoticz/domoticz.git;protocol=https;branch=development \
            file://domoticz.service \
           "
 
@@ -22,6 +21,8 @@ EXTRA_OECMAKE = " -DBOOST_INCLUDEDIR=${STAGING_INCDIR} \
                   -DOPENSSL_LIBRARIES=${STAGING_LIBDIR} \
                   -DCURL_LIBRARIES=${STAGING_LIBDIR} \
                   -DCURL_INCLUDE_DIR=${STAGING_INCDIR} \
+                  -DOPENZWAVE_LIBRARY_DIRS=${STAGING_LIBDIR} \
+                  -DUSE_STATIC_OPENZWAVE=NO \
                 "
 
 
@@ -39,6 +40,7 @@ do_install_append() {
     install -d ${D}${systemd_unitdir}/system
     sed s:LIBDIR:${localstatedir}/lib:g ${WORKDIR}/domoticz.service > ${D}${systemd_unitdir}/system/domoticz.service
 
+    rmdir ${D}${prefix}
 }
 
 FILES_${PN}-dbg += "${localstatedir}/lib/domoticz/.debug/"
@@ -53,6 +55,7 @@ USERADD_PARAM_${PN} = " \
     --user-group domoticz"
 
 # Domoticz is mostly used in combination with a smart meter (ftdi dongles) or an rftrxx (acm based).
-RRECOMMENDS_${PN} += "kernel-module-cdc-acm \
+RRECOMMENDS_${PN} += "python3 \
+                      kernel-module-cdc-acm \
                       kernel-module-usbserial \
                      "

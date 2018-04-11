@@ -7,9 +7,9 @@ DEPENDS = "lua sqlite3 boost curl openssl libusb zlib openzwave mosquitto"
 
 inherit cmake pkgconfig useradd systemd
 
-PV = "3.8923+git${SRCPV}"
+PV = "3.9202+git${SRCPV}"
 
-SRCREV = "f779742ffce602b277f0375a9fb143b00aed527b"
+SRCREV = "d58d55ab1dff3dc5a6c1cecd4691eb1ed374ceb3"
 SRC_URI = "git://github.com/domoticz/domoticz.git;protocol=https;branch=development \
            file://domoticz.service \
           "

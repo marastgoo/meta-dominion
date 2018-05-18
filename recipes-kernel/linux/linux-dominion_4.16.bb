@@ -7,23 +7,19 @@ KERNEL_IMAGETYPE ?= "zImage"
 
 COMPATIBLE_MACHINE = "(rogue|dominion-old|dominion|beast|macbook|soekris-net6501|arietta-g25|macbook|minnow|minnowboard|fri2|beaglebone|apu2c4|revo|dlink-dns320)"
 
-FILESPATH =. "${FILE_DIRNAME}/linux-dominion-4.14:${FILE_DIRNAME}/linux-dominion-4.14/${MACHINE}:"
+FILESPATH =. "${FILE_DIRNAME}/linux-dominion-4.16:${FILE_DIRNAME}/linux-dominion-4.16/${MACHINE}:"
 
 S = "${WORKDIR}/git"
 
-PV = "4.14.20"
+PV = "4.16.1"
 
-SRC_URI = "git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git;protocol=https;branch=linux-4.14.y"
+SRC_URI = "git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git;protocol=https;branch=linux-4.16.y"
 #SRC_URI = "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git;protocol=https;branch=master"
-SRCREV_pn-${PN} = "7e83b2ff485cacbf73d27f821e07a8c78ad8cc68"
+SRCREV_pn-${PN} = "11454943b264b548e714d8edf932ebf306e5f808"
 
 
 SRC_URI += " \
-             file://0001-wireless-populate-db.txt.patch \
              file://0001-bonding-sane-default-value-for-MAX_BONDS.patch \
-             file://0002-hwmon-k10temp-Move-chip-specific-code-into-probe-fun.patch \
-             file://0003-hwmon-k10temp-Add-support-for-family-17h.patch \
-             file://0004-hwmon-k10temp-Add-support-for-temperature-offsets.patch \
              file://0005-Fix-vdso-link-error.patch \
              file://bd00b873274664f077142c5826ac945f2c63b532.patch \
              file://am335x-bone-scale-data.bin \

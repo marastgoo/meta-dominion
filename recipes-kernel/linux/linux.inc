@@ -6,6 +6,9 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=d7810fab7487fb0aad327b76f1be7cd7"
 
 inherit kernel siteinfo
 
+PATCHTOOL = "git"
+PATCH_COMMIT_FUNCTIONS = "1"
+
 DEPENDS += "lz4-native"
 
 # Specify the commandline for your device

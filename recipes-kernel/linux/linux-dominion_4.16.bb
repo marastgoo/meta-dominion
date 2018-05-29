@@ -11,11 +11,11 @@ FILESPATH =. "${FILE_DIRNAME}/linux-dominion-4.16:${FILE_DIRNAME}/linux-dominion
 
 S = "${WORKDIR}/git"
 
-PV = "4.16.1"
+PV = "4.16.12"
 
 SRC_URI = "git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git;protocol=https;branch=linux-4.16.y"
 #SRC_URI = "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git;protocol=https;branch=master"
-SRCREV_pn-${PN} = "11454943b264b548e714d8edf932ebf306e5f808"
+SRCREV_pn-${PN} = "e2a75b6d2e9de22858bb2bfa14fea56a2c6e4761"
 
 
 SRC_URI += " \

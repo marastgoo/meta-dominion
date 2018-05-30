@@ -7,9 +7,9 @@ DEPENDS = "lua sqlite3 boost curl openssl libusb zlib openzwave mosquitto"
 
 inherit cmake pkgconfig useradd systemd
 
-PV = "3.9202+git${SRCPV}"
+PV = "3.9530+git${SRCPV}"
 
-SRCREV = "d58d55ab1dff3dc5a6c1cecd4691eb1ed374ceb3"
+SRCREV = "30295913a5190726aacb30e9505bbca7e76026f1"
 SRC_URI = "git://github.com/domoticz/domoticz.git;protocol=https;branch=development \
            file://domoticz.service \
           "
@@ -26,6 +26,7 @@ EXTRA_OECMAKE = " -DBOOST_INCLUDEDIR=${STAGING_INCDIR} \
                   -DUSE_BUILTIN_MQTT=NO \
                 "
 
+CXXFLAGS_append = " -std=gnu++11"
 
 do_install_append() {
     # The domoticz manual says "run from git checkout", but we don't tolerate such nonsense

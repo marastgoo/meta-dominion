@@ -7,9 +7,9 @@ DEPENDS = "lua sqlite3 boost curl openssl libusb zlib openzwave mosquitto"
 
 inherit cmake pkgconfig useradd systemd
 
-PV = "3.8923+git${SRCPV}"
+PV = "3.9625+git${SRCPV}"
 
-SRCREV = "f779742ffce602b277f0375a9fb143b00aed527b"
+SRCREV = "529bd73d92c3b90477e4e193dcf6eb826af3de7c"
 SRC_URI = "git://github.com/domoticz/domoticz.git;protocol=https;branch=development \
            file://domoticz.service \
           "
@@ -17,15 +17,19 @@ SRC_URI = "git://github.com/domoticz/domoticz.git;protocol=https;branch=developm
 S = "${WORKDIR}/git"
 
 EXTRA_OECMAKE = " -DBOOST_INCLUDEDIR=${STAGING_INCDIR} \
+                  -DUSE_STATIC_BOOST=NO \
                   -DOPENSSL_INCLUDE_DIR=${STAGING_INCDIR} \
                   -DOPENSSL_LIBRARIES=${STAGING_LIBDIR} \
+                  -DUSE_OPENSSL_STATIC=NO \
                   -DCURL_LIBRARIES=${STAGING_LIBDIR} \
                   -DCURL_INCLUDE_DIR=${STAGING_INCDIR} \
                   -DOPENZWAVE_LIBRARY_DIRS=${STAGING_LIBDIR} \
                   -DUSE_STATIC_OPENZWAVE=NO \
+                  -DUSE_STATIC_LIBSTDCXX=NO \
                   -DUSE_BUILTIN_MQTT=NO \
                 "
 
+CXXFLAGS_append = " -std=c++11 -flto=4"
 
 do_install_append() {
     # The domoticz manual says "run from git checkout", but we don't tolerate such nonsense

@@ -54,22 +54,12 @@ KERNEL_CONFIG_FRAGMENTS_append = " \
 
 KERNEL_CONFIG_FRAGMENTS_append_x86 = " \
                                   ${WORKDIR}/intel.fragment \
+                                  ${WORKDIR}/nfs.fragment \
                                  "
 
 KERNEL_CONFIG_FRAGMENTS_append_x86-64 = " \
                                   ${WORKDIR}/intel.fragment \
-                                 "
-
-KERNEL_CONFIG_FRAGMENTS_append_dominion = " \
-                                  ${WORKDIR}/mlx.fragment \
-                                 "
-
-KERNEL_CONFIG_FRAGMENTS_append_beast = " \
-				  ${WORKDIR}/mlx.fragment \
                                   ${WORKDIR}/nfs.fragment \
-                                 "
-
-KERNEL_CONFIG_FRAGMENTS_append_rogue = " \
                                   ${WORKDIR}/mlx.fragment \
                                  "
 

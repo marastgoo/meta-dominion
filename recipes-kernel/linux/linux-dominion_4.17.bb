@@ -22,6 +22,7 @@ SRC_URI += " \
              file://0001-bonding-sane-default-value-for-MAX_BONDS.patch \
              file://0005-Fix-vdso-link-error.patch \
              file://bd00b873274664f077142c5826ac945f2c63b532.patch \
+             file://0001-ARM-DTS-add-am335x-sancloud-bbe-device-tree.patch \
              file://am335x-bone-scale-data.bin \
              file://am335x-evm-scale-data.bin \
              file://am335x-pm-firmware.bin \

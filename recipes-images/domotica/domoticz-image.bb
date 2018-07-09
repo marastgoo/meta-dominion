@@ -25,7 +25,8 @@ IMAGE_INSTALL += " \
         e2fsprogs-resize2fs gptfdisk parted util-linux \
         linux-firmware \
 	kernel-modules \
-	sch-cake \
+        python-dev python-modules python-pip \
+        python3-dev python3-modules python3-pip \
         domoticz \
         ${CONMANPKGS} \
 "

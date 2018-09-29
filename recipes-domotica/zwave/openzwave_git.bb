@@ -10,7 +10,7 @@ DEPENDS = "udev coreutils-native libxml2-native"
 
 SRCREV = "0dd423aa650f32b22bc429e6e901a72ab2e6388a"
 # counts git commits since 1.5 tag
-PV = "1.4.2887"
+PV = "1.4.3190"
 
 SRC_URI = "git://github.com/OpenZWave/open-zwave.git;protocol=https \
           "

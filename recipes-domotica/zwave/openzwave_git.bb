@@ -8,11 +8,12 @@ inherit pkgconfig
 
 DEPENDS = "udev coreutils-native libxml2-native"
 
-SRCREV = "b0b09127ed736d7e09104f499a0bade38afb65d7"
+SRCREV = "0dd423aa650f32b22bc429e6e901a72ab2e6388a"
 # counts git commits since 1.5 tag
-PV = "1.4.2886"
+PV = "1.4.2887"
 
-SRC_URI = "git://github.com/OpenZWave/open-zwave.git;protocol=https"
+SRC_URI = "git://github.com/OpenZWave/open-zwave.git;protocol=https \
+          "
 
 S = "${WORKDIR}/git"
 
@@ -22,6 +23,7 @@ EXTRA_OEMAKE = "PREFIX=${prefix} \
                 DESTDIR=${D} \
                 SYSCONFDIR=${sysconfdir}/openzwave \
                 sysconfdir=${sysconfdir}/openzwave \
+                instlibdir=${libdir} \
                 pkgconfigdir=${libdir}/pkgconfig "
 
 do_compile() {

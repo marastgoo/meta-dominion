@@ -11,16 +11,17 @@ FILESPATH =. "${FILE_DIRNAME}/linux-dominion-4.18:${FILE_DIRNAME}/linux-dominion
 
 S = "${WORKDIR}/git"
 
-PV = "4.18.11"
+PV = "4.18.14"
 
 SRC_URI = "git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git;protocol=https;branch=linux-4.18.y"
 #SRC_URI = "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git;protocol=https;branch=master"
-SRCREV_pn-${PN} = "2f411a0873a9daa20ae16cf5879d11bbea267582"
+SRCREV_pn-${PN} = "e7d199e92956587695510d147c8de795f944cec9"
 
 SRC_URI += " \
              file://0001-bonding-sane-default-value-for-MAX_BONDS.patch \
              file://0005-Fix-vdso-link-error.patch \
              file://0001-ARM-DTS-add-am335x-sancloud-bbe-device-tree.patch \
+             file://0001-block-BFQ-default-for-single-queue-devices.patch \
              file://am335x-bone-scale-data.bin \
              file://am335x-evm-scale-data.bin \
              file://am335x-pm-firmware.bin \

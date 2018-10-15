@@ -186,18 +186,28 @@ python () {
     try:
         defconfig = bb.fetch2.localpath('file://defconfig', d)
     except bb.fetch2.FetchError:
+        bb.warn("Fetch error for file://defconfig")
         return
 
     try:
         configfile = open(defconfig)
     except IOError:
+        bb.warn("IO error opening file://defconfig")
         return
 
-    if 'CONFIG_KERNEL_LZO=y\n' in configfile.readlines():
+    # bb.warn("Defconfig OK, checking for LZ*")
+
+    lines = str(configfile.readlines())
+    # bb.warn(line)
+    if (lines.find('CONFIG_KERNEL_LZO=y')  != -1):
+        # bb.warn("LZO enabled in kernel, adding 'lzop-native' to DEPENDS")
         depends = d.getVar('DEPENDS', False)
         d.setVar('DEPENDS', depends + ' lzop-native')
 
-    if 'CONFIG_KERNEL_LZ4=y\n' in configfile.readlines():
+    if (lines.find('CONFIG_KERNEL_LZ4=y')  != -1):
+        # bb.warn("LZ4 enabled in kernel, adding 'lz4-native' to DEPENDS")
         depends = d.getVar('DEPENDS', False)
         d.setVar('DEPENDS', depends + ' lz4-native')
+
+    configfile.close()	
 }

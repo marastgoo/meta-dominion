@@ -9,58 +9,11 @@ inherit kernel siteinfo
 PATCHTOOL = "git"
 PATCH_COMMIT_FUNCTIONS = "1"
 
-DEPENDS += "lz4-native"
-
-# Specify the commandline for your device
-
-# Set the verbosity of kernel messages during runtime
-# You can define CMDLINE_DEBUG in your local.conf or distro.conf to override this behaviour  
-CMDLINE_DEBUG ?= '${@oe.utils.conditional("DISTRO_TYPE", "release", "quiet", "debug", d)}'
-CMDLINE_append = " ${CMDLINE_DEBUG} "
-
-# Kernel bootlogo is distro-specific (default is OE logo).
-# Logo resolution (qvga, vga, ...) is machine-specific.
-LOGO_SIZE ?= "."
-
 ALLOW_EMPTY_kernel-devicetree = "1"
-
-python __anonymous () {
-
-    import bb
-    
-    devicetree = d.getVar('KERNEL_DEVICETREE', True) or ''
-    if devicetree:
-    	depends = d.getVar("DEPENDS", True)
-    	d.setVar("DEPENDS", "%s dtc-native" % depends)
-}
 
 do_configure_prepend() {
 
-        # Rename getline in ./scripts/unifdef.c
-        # Kernels up to 2.6.29 are currently failing to build unifdef.c,
-        # clashing with exposed getline() from <stdio.h>
-        # see https://patchwork.kernel.org/patch/11166/
-        # committed in 2.6.29 (commit d15bd1067b1fcb2b7250d22bc0c7c7fea0b759f7)
-
-        sed -i -e 's/getline/parseline/g' ${S}/scripts/unifdef.c
-
-
         echo "" > ${B}/.config
-
-        #
-        # logo support, if you supply logo_linux_clut224.ppm in SRC_URI, then it's going to be used
-        #
-        if [ -e ${WORKDIR}/${LOGO_SIZE}/logo_linux_clut224.ppm ]; then
-                install -m 0644 ${WORKDIR}/${LOGO_SIZE}/logo_linux_clut224.ppm ${S}/drivers/video/logo/logo_linux_clut224.ppm
-                echo "CONFIG_LOGO=y"                    >> ${B}/.config
-                echo "CONFIG_LOGO_LINUX_CLUT224=y"      >> ${B}/.config
-        fi
-
-	# Enable thumb2 fixup for specific issue in angstrom toolchains when used on A8 r1p[012] silicon
-        if [ "${CORTEXA8FIXUP}" = "yes" ] ; then
-            sed -i -e /CONFIG_ARM_ERRATA_430973/d ${WORKDIR}/defconfig
-            echo "CONFIG_ARM_ERRATA_430973=y" >> ${B}/.config
-        fi
 
 	#
 	# endian support
@@ -193,39 +146,7 @@ do_configure_prepend() {
         oe_runmake -C ${S} O=${B} savedefconfig && cp ${B}/defconfig ${WORKDIR}/defconfig.saved
 }
 
-do_configure_append() {
-        if test -e scripts/Makefile.fwinst ; then
-		sed -i -e "s:-m0644:-m 0644:g" scripts/Makefile.fwinst
-	fi
-}
-
-# bitbake.conf only prepends PARALLEL make in tasks called do_compile, which isn't the case for compile_modules
-# So explicitly enable it for that in here
-EXTRA_OEMAKE = "${PARALLEL_MAKE} "
-
-do_install_append() {
-	oe_runmake headers_install INSTALL_HDR_PATH=${D}${exec_prefix}/src/linux-${KERNEL_VERSION} ARCH=$ARCH
-	install -d ${D}/boot
-	make -C ${S} O=${B} ARCH=$ARCH dtbs || true
-	install -m 0644 ${B}/arch/$ARCH/boot/dts/*.dtb ${D}/boot || true
-
-	install -d ${D}/lib/firmware
-	install -m 0644 ${S}/firmware/capes/*.dts ${D}/lib/firmware || true
-
-	rm -f ${D}${KERNEL_SRC_PATH}/arch/*/vdso/vdso*.so
-}
-
-PACKAGES =+ "kernel-headers"
-FILES_kernel-headers = "${exec_prefix}/src/linux*"
-
-require recipes-kernel/linux/linux-dtb.inc
-
-PACKAGES =+ "kernel-devicetree-overlays"
-FILES_kernel-devicetree-overlays = "/lib/firmware/*.dtbo /lib/firmware/*.dts"
-FILES_kernel-devicetree += "/boot/*.dtb"
-
-RDEPENDS_kernel-image_append = " kernel-devicetree"
-RRECOMMENDS_kernel-image_append = " kernel-devicetree-overlays"
+EXTRA_OEMAKE += "LOADADDR=${UBOOT_LOADADDRESS}"
 
 # Automatically depend on lzop/lz4-native if CONFIG_KERNEL_LZO/LZ4 is enabled
 python () {

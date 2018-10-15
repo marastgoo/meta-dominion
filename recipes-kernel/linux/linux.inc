@@ -148,6 +148,39 @@ do_configure_prepend() {
 
 EXTRA_OEMAKE += "LOADADDR=${UBOOT_LOADADDRESS}"
 
+do_install_append() {
+        for DTB in ${KERNEL_DEVICETREE}; do
+                DTB=`normalize_dtb "${DTB}"`
+                DTB_EXT=${DTB##*.}
+                DTB_BASE_NAME=`basename ${DTB} ."${DTB_EXT}"`
+                for type in ${KERNEL_IMAGETYPE_FOR_MAKE}; do
+                        symlink_name=${type}"-"${KERNEL_IMAGE_SYMLINK_NAME}
+                        DTB_SYMLINK_NAME=`echo ${symlink_name} | sed "s/${MACHINE}/${DTB_BASE_NAME}/g"`
+                        rm -f ${D}/${KERNEL_IMAGEDEST}/devicetree-${DTB_SYMLINK_NAME}.${DTB_EXT}
+                done
+        done
+}	
+do_deploy_append() {
+        for DTB in ${KERNEL_DEVICETREE}; do
+                DTB=`normalize_dtb "${DTB}"`
+                DTB_EXT=${DTB##*.}
+                DTB_BASE_NAME=`basename ${DTB} ."${DTB_EXT}"`
+                for type in ${KERNEL_IMAGETYPE_FOR_MAKE}; do
+                        base_name=${type}"-"${KERNEL_IMAGE_BASE_NAME}
+                        symlink_name=${type}"-"${KERNEL_IMAGE_SYMLINK_NAME}
+                        DTB_NAME=`echo ${base_name} | sed "s/${MACHINE}/${DTB_BASE_NAME}/g"`
+                        DTB_SYMLINK_NAME=`echo ${symlink_name} | sed "s/${MACHINE}/${DTB_BASE_NAME}/g"`
+                        DTB_PATH=`get_real_dtb_path_in_kernel "${DTB}"`
+                        rm -f ${DEPLOYDIR}/${DTB_SYMLINK_NAME}.${DTB_EXT}
+                        rm -f ${DEPLOYDIR}/${DTB_BASE_NAME}.${DTB_EXT}
+			rm -f ${DEPLOYDIR}/${DTB_NAME}.${DTB_EXT}
+
+                        install -d ${DEPLOYDIR}
+                        install -m 0644 ${DTB_PATH} ${DEPLOYDIR}/
+                done
+        done
+}
+
 # Automatically depend on lzop/lz4-native if CONFIG_KERNEL_LZO/LZ4 is enabled
 python () {
     try:

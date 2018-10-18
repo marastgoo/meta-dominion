@@ -11,11 +11,11 @@ FILESPATH =. "${FILE_DIRNAME}/linux-dominion-4.18:${FILE_DIRNAME}/linux-dominion
 
 S = "${WORKDIR}/git"
 
-PV = "4.18.14"
+PV = "4.18.15"
 
 SRC_URI = "git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git;protocol=https;branch=linux-4.18.y"
 #SRC_URI = "git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git;protocol=https;branch=master"
-SRCREV_pn-${PN} = "e7d199e92956587695510d147c8de795f944cec9"
+SRCREV_pn-${PN} = "2724bf10255a5bd0fe578b4a4c7a0f7ab15f73cd"
 
 SRC_URI += " \
              file://0001-bonding-sane-default-value-for-MAX_BONDS.patch \

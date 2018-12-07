@@ -11,15 +11,16 @@ FILESPATH =. "${FILE_DIRNAME}/linux-dominion-4.19:${FILE_DIRNAME}/linux-dominion
 
 S = "${WORKDIR}/git"
 
-PV = "4.19.2"
+PV = "4.19.7"
 
 SRC_URI = "git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git;protocol=https;branch=linux-4.19.y"
-SRCREV_pn-${PN} = "7950eb316adf792283cac5743dfe5a11e74833dc"
+SRCREV_pn-${PN} = "61c68f2a2af0f3dc531053524f980a7875e24e7d"
 
 SRC_URI += " \
              file://0001-bonding-sane-default-value-for-MAX_BONDS.patch \
              file://0001-block-BFQ-default-for-single-queue-devices.patch \
              file://0002-sched-allow-CAKE-to-be-set-as-default.patch \
+             file://0001-https-www.wireguard.com-install-kernel-requirements.patch \
              file://am335x-bone-scale-data.bin \
              file://am335x-evm-scale-data.bin \
              file://am335x-pm-firmware.bin \
@@ -38,6 +39,7 @@ SRC_URI += " \
              file://mlx.fragment \
              file://tweaks.fragment \
              file://unwinder.fragment \
+             file://wireguard.fragment \
             "
 
 KERNEL_CONFIG_FRAGMENTS_append = " \
@@ -50,6 +52,7 @@ KERNEL_CONFIG_FRAGMENTS_append = " \
                                   ${WORKDIR}/systemd.fragment \
                                   ${WORKDIR}/tweaks.fragment \
                                   ${WORKDIR}/unwinder.fragment \
+                                  ${WORKDIR}/wireguard.fragment \
                                  "
 
 KERNEL_CONFIG_FRAGMENTS_append_x86 = " \

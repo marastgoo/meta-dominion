@@ -7,16 +7,19 @@ DEPENDS = "lua sqlite3 boost curl openssl libusb zlib openzwave mosquitto"
 
 inherit cmake pkgconfig useradd systemd
 
-PV = "3.9625+git${SRCPV}"
+PV = "4.10301+git${SRCPV}"
 
-SRCREV = "529bd73d92c3b90477e4e193dcf6eb826af3de7c"
+SRCREV = "b15219463edf6e11847019ec3939ff80a376645c"
 SRC_URI = "git://github.com/domoticz/domoticz.git;protocol=https;branch=development \
+           file://0001-WebServer-crude-workaround-for-buffer-overflow.patch \
            file://domoticz.service \
           "
 
 S = "${WORKDIR}/git"
 
-EXTRA_OECMAKE = " -DBOOST_INCLUDEDIR=${STAGING_INCDIR} \
+EXTRA_OECMAKE = " -DWITH_LIBUSB=YES \
+                  -DWITH_GPIO=YES \
+                  -DBOOST_INCLUDEDIR=${STAGING_INCDIR} \
                   -DUSE_STATIC_BOOST=NO \
                   -DOPENSSL_INCLUDE_DIR=${STAGING_INCDIR} \
                   -DOPENSSL_LIBRARIES=${STAGING_LIBDIR} \
@@ -27,6 +30,8 @@ EXTRA_OECMAKE = " -DBOOST_INCLUDEDIR=${STAGING_INCDIR} \
                   -DUSE_STATIC_OPENZWAVE=NO \
                   -DUSE_STATIC_LIBSTDCXX=NO \
                   -DUSE_BUILTIN_MQTT=NO \
+                  -DUSE_BUILTIN_SQLITE=NO \
+                  -DUSE_BUILTIN_ZLIB=NO \
                 "
 
 CXXFLAGS_append = " -std=c++11 -flto=4"
@@ -36,16 +41,33 @@ do_install_append() {
     # and since 'make install' doesn't work properly, we do some massaging.
     install -d ${D}/foo
     mv ${D}${prefix}/* ${D}/foo
+
     install -d ${D}${localstatedir}/lib/domoticz
     mv ${D}/foo/* ${D}${localstatedir}/lib/domoticz
+
     rmdir ${D}/foo
+
+    # Webserver files, 'wwwroot'
+    install -d ${D}${datadir}/${BPN}
+    mv ${D}${localstatedir}/lib/domoticz/www ${D}${datadir}/${BPN}
+
+    # Data files and scripts, 'approot'
+    # keep them in /var/lib/domoticz
+
+    # Executables
+    install -d ${D}${bindir} 
+    mv ${D}${localstatedir}/lib/domoticz/domoticz ${D}${bindir}
+    # internal update script, disable
+    rm -f ${D}${localstatedir}/lib/domoticz/updatedomo
 
     chown -R domoticz ${D}${localstatedir}/lib
 
     install -d ${D}${systemd_unitdir}/system
-    sed s:LIBDIR:${localstatedir}/lib:g ${WORKDIR}/domoticz.service > ${D}${systemd_unitdir}/system/domoticz.service
-
-    rmdir ${D}${prefix}
+    sed -e s:LIBDIR:${localstatedir}/lib:g \
+        -e s:BINDIR:${bindir}:g \
+	-e s:/var/lib/domoticz/www:${datadir}/${BPN}/www:g \
+        -e s:/var:${localstatedir}:g \
+            ${WORKDIR}/domoticz.service > ${D}${systemd_unitdir}/system/domoticz.service
 }
 
 FILES_${PN}-dbg += "${localstatedir}/lib/domoticz/.debug/"

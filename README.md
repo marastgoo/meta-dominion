@@ -4,7 +4,7 @@ Meta-dominion
 Introduction
 -------------------------
 
-The official OpenEmbedded/Yocto BSP layer for my home machines
+updated official OpenEmbedded/Yocto BSP layer for foo2zjs drivers
 
 The meta-dominion layer depends on:
 

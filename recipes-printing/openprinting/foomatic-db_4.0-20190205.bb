@@ -4,10 +4,10 @@ LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://COPYING;md5=89aead728f64ad2af95c03f5793274bc"
 
 SRC_URI = "http://www.openprinting.org/download/foomatic/foomatic-db-${PV}.tar.gz"
-SRC_URI[md5sum] = "6adaea9b7383d97c3aefb58532fd66d8"
-SRC_URI[sha256sum] = "e9824ae1a7b20894a4be4083e49b66ed828ccc520d55abfdfa835c1eae99dee3"
+SRC_URI[md5sum] = "6b95c359c3369c98307fcaf23841340d"
+SRC_URI[sha256sum] = "e82b1f4f0216ed16f02da17ba7d162648a275d586788d9b6baaaf8844529613b"
 
-S = "${WORKDIR}/${BPN}-20150819"
+S = "${WORKDIR}/${BPN}-20190205"
 
 inherit autotools-brokensep pkgconfig allarch
 

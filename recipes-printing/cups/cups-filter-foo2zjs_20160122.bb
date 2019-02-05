@@ -14,6 +14,7 @@ S = "${WORKDIR}/git"
 PARALLEL_MAKE = ""
 
 do_install() {
+	touch manual.pdf
 	install -d ${D}${libdir}/cups/filter
 	oe_runmake install DESTDIR=${D}
 }
@@ -21,4 +22,6 @@ do_install() {
 FILES_${PN} += "${datadir} \
                 ${libdir}/cups/filter \
                "
-RDEPENDS_${PN} += "ghostscript foomatic-db bash"
+RDEPENDS_${PN} += "ghostscript foomatic-db bash tk"
+INSANE_SKIP_${PN} = "ldflags"
+
